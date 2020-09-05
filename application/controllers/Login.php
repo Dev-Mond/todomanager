@@ -1,0 +1,40 @@
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed!');
+
+class login extends CI_Controller {
+
+    public function __contruct() {
+        parent::__construct();
+        $this->load->library('form_validation');
+        $this->load->library('encryption');
+    }
+
+    public function index() {
+        $data['pageTitle'] = "Login | Todo Manager";
+        $this->load->view('layout/header', $data);
+        $this->load->view('account/login', $data);
+        $this->load->view('layout/footer', $data);
+    }
+
+    public function acceptLogin() {
+        $username = $this->input->post('username');
+        $password = $this->input->post('password');
+        $this->load->model('Login_model', 'login');
+        $result = $this->login->verifyCredentials($username, $password);
+        
+        if ($result == 'success') {
+            $this->session->set_userdata('user', $username);
+        }
+
+        $data['response'] = array('result' => $result);
+
+        echo json_encode($data);
+    }
+
+    public function logout() {
+        if($this->session->has_userdata('user')){
+            $this->session->unset_userdata('user');
+        }
+        redirect('login/index');
+    }
+}
