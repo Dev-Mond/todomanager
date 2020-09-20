@@ -7,10 +7,15 @@ class Register extends CI_Controller {
         parent::__contruct();
         $this->load->library('form_validation');
         $this->load->library('encryption');
+        $this->load->library("breadcrumbs");
     }
 
     public function index() {
-        $data['pageTitle'] = "Register | Todo Manager";
+        $data['pageTitle'] = "Register";
+        $this->breadcrumbs->setActive('Register');
+        $this->breadcrumbs->add('Home', base_url());
+        $data['breadcrumbs'] = $this->breadcrumbs;
+
         $this->load->view('layout/header', $data);
         $this->load->view('account/register', $data);
         $this->load->view('layout/footer', $data);
@@ -18,15 +23,18 @@ class Register extends CI_Controller {
 
     public function acceptRegister() {
         $data = array();
-        $this->form_validation->set_rule();
-        $this->form_validation->set_rule();
+        $this->form_validation->set_rules('username', 'Username', 'trim|required|min_length[5]');
+        $this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[5]');
+        $this->form_validation->set_rules('confirmation', 'Password Confirmation', 'trim|required|matches[password]');
+        $this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email|is_unique[adm_account.email]');
         if($this->form_validation->run() == FALSE) {
-
+            $data['STATUS'] = 'FAILED';
+            $data['ERROR'] = validation_error();
         }
         else {
-
+            $data['STATUS'] = 'SUCCESS';
         }
         
-        return 'output';
+        echo json_encode($data);
     }
 }

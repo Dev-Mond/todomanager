@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title><?=$pageTitle?></title>
+	<title><?=$pageTitle?> | Todo Manager</title>
 	<script>
 		var baseUrl = function(action) {
 			return '<?=base_url()?>' + action;
@@ -20,3 +20,49 @@
 	<script src="<?=base_url('assets/js/script.js')?>"></script>
 </head>
 <body>
+	<nav class="bg-dark shadow mb-5 mt-5">
+		<div class="container">
+			<nav class="navbar navbar-expand-sm navbar-dark bg-none">
+				<a class="navbar-brand" href="<?=base_url()?>">Todo Manager</a>
+					<button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
+						aria-expanded="false" aria-label="Toggle navigation"></button>
+					<div class="collapse navbar-collapse" id="collapsibleNavId">
+						<ul class="navbar-nav ml-auto text-dark">
+							<?php if($this->session->has_userdata('user')):?>
+								<li class="nav-item">
+									<a class="nav-link" href="#"><?=$this->session->userdata('user')?></a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" href="<?=base_url('logout')?>">Logout</a>
+								</li>
+							<?php else:?>
+								<?php if($pageTitle !== "Home"):?>
+									<li class="nav-item">
+										<a class="nav-link" href="<?=base_url('home')?>">Home</a>
+									</li>
+								<?php endif?>
+								<?php if($pageTitle !== "Register"):?>
+									<li class="nav-item">
+										<a class="nav-link" href="<?=base_url('register')?>">Register</a>
+									</li>
+								<?php endif?>
+								<?php if($pageTitle !== "Login"):?>
+									<li class="nav-item">
+										<a class="nav-link" href="<?=base_url('login')?>">Login</a>
+									</li>
+								<?php endif?>
+							<?php endif?>
+						</ul>
+					</div>
+			</nav>	
+		</div>
+	</nav>
+
+	<section class="container">
+		<nav class="breadcrumb">
+			<?php foreach ($breadcrumbs->links as $link):?> 
+				<a class="breadcrumb-item" href="<?=$link->url?>"><?=$link->name?></a>
+			<?php endforeach?>
+			<span class="breadcrumb-item active"><?=$breadcrumbs->active?></span>
+		</nav>
+	</section>

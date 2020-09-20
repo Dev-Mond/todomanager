@@ -7,10 +7,16 @@ class login extends CI_Controller {
         parent::__construct();
         $this->load->library('form_validation');
         $this->load->library('encryption');
+        $this->load->library("breadcrumbs");
     }
 
     public function index() {
-        $data['pageTitle'] = "Login | Todo Manager";
+        $data['pageTitle'] = "Login";
+        
+        $this->breadcrumbs->setActive('Login');
+        $this->breadcrumbs->add('Home', base_url());
+        $data['breadcrumbs'] = $this->breadcrumbs;
+
         $this->load->view('layout/header', $data);
         $this->load->view('account/login', $data);
         $this->load->view('layout/footer', $data);
@@ -35,6 +41,6 @@ class login extends CI_Controller {
         if($this->session->has_userdata('user')){
             $this->session->unset_userdata('user');
         }
-        redirect('login/index');
+        redirect('login');
     }
 }
