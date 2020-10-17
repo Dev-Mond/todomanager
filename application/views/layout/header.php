@@ -9,62 +9,104 @@
 		}
 	</script>
 	<link rel="icon" href="<?=base_url('assets/img/MY-BRAND-ICON.ico')?>">
-	<script src="<?=base_url('assets/lib/node_modules/jquery/dist/jquery.js')?>"></script>
-	<link rel="icon" href="<?=base_url('assets/lib/node_modules/@fortawesome/fontawesome-free/css/all.css')?>">
-	<script src="<?=base_url('assets/lib/node_modules/@fortawesome/fontawesome-free/js/all.js')?>"></script>
-	<link rel="icon" href="<?=base_url('assets/lib/node_modules/bootstrap/dist/css/bootstrap.css')?>">
-	<script src="<?=base_url('assets/lib/node_modules/bootstrap/dist/js/bootstrap.js')?>"></script>
-	<script src="<?=base_url('assets/lib/node_modules/bootstrap/dist/js/bootstrap.bundle.js')?>"></script>
-	<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/js/all.min.js" integrity="sha512-YSdqvJoZr83hj76AIVdOcvLWYMWzy6sJyIMic2aQz5kh2bPTd9dzY3NtdeEAzPp/PhgZqr4aJObB3ym/vsItMg==" crossorigin="anonymous"></script>
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script> -->
-	<link rel="stylesheet" href="<?=base_url('assets/css/style.css')?>">
+	<script src="<?=base_url('assets/lib/jquery/dist/jquery.js')?>"></script>
+	<link rel="stylesheet" href="<?=base_url('assets/lib/fontawesome-free/css/all.css')?>"/>
+	<script src="<?=base_url('assets/lib/fontawesome-free/js/all.js')?>"></script>
+	<link rel="stylesheet" href="<?=base_url('assets/lib/bootstrap/dist/css/bootstrap.min.css')?>"/>
+	<script src="<?=base_url('assets/lib/popper/dist/umd/popper.js')?>"></script>
+	<script src="<?=base_url('assets/lib/bootstrap/dist/js/bootstrap.min.js')?>"></script>
+	<script src="<?=base_url('assets/lib/bootstrap/dist/js/bootstrap.bundle.min.js')?>"></script>
+	<link rel="stylesheet" href="<?=base_url('assets/css/style.css')?>"/>
 	<script src="<?=base_url('assets/js/script.js')?>"></script>
 </head>
 <body>
-	<nav class="bg-dark shadow mb-5 mt-5">
-		<div class="container">
-			<nav class="navbar navbar-expand-sm navbar-dark bg-none">
-				<a class="navbar-brand" href="<?=base_url()?>">Todo Manager</a>
-					<button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
-						aria-expanded="false" aria-label="Toggle navigation"></button>
-					<div class="collapse navbar-collapse" id="collapsibleNavId">
-						<ul class="navbar-nav ml-auto text-dark">
-							<?php if($this->session->has_userdata('user')):?>
-								<li class="nav-item">
-									<a class="nav-link" href="#"><?=$this->session->userdata('user')?></a>
-								</li>
-								<li class="nav-item">
-									<a class="nav-link" href="<?=base_url('logout')?>">Logout</a>
-								</li>
-							<?php else:?>
-								<?php if($pageTitle !== "Home"):?>
-									<li class="nav-item">
-										<a class="nav-link" href="<?=base_url('home')?>">Home</a>
-									</li>
-								<?php endif?>
-								<?php if($pageTitle !== "Register"):?>
-									<li class="nav-item">
-										<a class="nav-link" href="<?=base_url('register')?>">Register</a>
-									</li>
-								<?php endif?>
-								<?php if($pageTitle !== "Login"):?>
-									<li class="nav-item">
-										<a class="nav-link" href="<?=base_url('login')?>">Login</a>
-									</li>
-								<?php endif?>
-							<?php endif?>
-						</ul>
-					</div>
-			</nav>	
-		</div>
+	<nav class="bg-dark">
+		<nav class="navbar navbar-expand-sm navbar-dark bg-none">
+			<a class="navbar-brand ml-3" href="<?=base_url()?>">
+				<i class="fa fa-list mr-2"></i>
+				<span>Todo Manager</span>	
+			</a>
+			<button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
+				aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-list"></i></button>
+			<div class="collapse navbar-collapse" id="collapsibleNavId">
+				<ul class="navbar-nav ml-auto text-dark mr-5">
+					<?php if($this->session->has_userdata('user')):?>
+						<li class="nav-item">
+							<a class="nav-link align-middle" href="#"><?=$this->session->userdata('user')?></a>
+						</li>
+						<li class="nav-item">
+							<a class="btn btn-sm bg-transparent text-light rounded-0 border-light border" href="<?=base_url('logout')?>">Logout</a>
+						</li>
+					<?php else:?>
+						<?php if($pageTitle !== "Home"):?>
+							<li class="nav-item">
+								<a class="btn btn-sm bg-transparent text-light rounded-0 border-light border" href="<?=base_url('home')?>">Home</a>
+							</li>
+						<?php endif?>
+						<?php if($pageTitle !== "Register"):?>
+							<li class="nav-item">
+								<a class="btn btn-sm bg-transparent text-light rounded-0 border-light border" href="<?=base_url('register')?>">Register</a>
+							</li>
+						<?php endif?>
+						<?php if($pageTitle !== "Login"):?>
+							<li class="nav-item">
+								<a class="btn btn-sm bg-transparent text-light rounded-0 border-light border" href="<?=base_url('login')?>">Login</a>
+							</li>
+						<?php endif?>
+					<?php endif?>
+				</ul>
+			</div>
+		</nav>	
 	</nav>
-
-	<section class="container">
+	<?php if($this->session->has_userdata('user')):?>
+	<aside>
+		<ul style="width:250px; height: 93.9%; margin-bottom: 0px" class="nabar-nav overflow-hidden position-absolute bg-dark text-left list-unstyled dashboard">
+			<li class="nav-item pt-5 pb-3 text-center">
+				<img src="<?=base_url('assets/img/profile.jpg')?>" width="100" height="100" class="rounded-circle border-light border" alt="profile.jpg">
+			</li>
+			<li class="nav-item pb-5 text-center">
+				<span class="text-light font-weight-bold">Mond</span>
+			</li>
+			<li class="nav-item">
+				<a href="#" class="nav-link pl-2 pt-2 <?=$pageTitle=='Dashboard'?'selected':'';?>">
+					<i class="fa fa-home"></i>
+					<span class="m-3">Dashboard</span>
+				</a>
+			</li>
+			<li class="nav-item">
+				<a href="#" class="nav-link pl-2 pt-2 <?=$pageTitle=='Todo List'?'selected':'';?>">
+					<i class="fa fa-tasks"></i>
+					<span class="m-3">Todo List</span>
+				</a>
+			</li>
+			<li class="nav-item">
+				<a href="#" class="nav-link pl-2 pt-2 <?=$pageTitle=='Projects'?'selected':'';?>">
+					<i class="fa fa-project-diagram"></i>
+					<span class="m-3">Projects</span>
+				</a>
+			</li>
+			<li class="nav-item">
+				<a href="#" class="nav-link pl-2 pt-2 <?=$pageTitle=='Chat Room'?'selected':'';?>">
+					<i class="fa fa-comments"></i>
+					<span class="m-3">Chat Room</span>
+				</a>
+			</li>
+			<li class="nav-item">
+				<a href="#" class="nav-link pl-2 pt-2 <?=$pageTitle=='Profile'?'selected':'';?>">
+					<i class="fa fa-user"></i>
+					<span class="m-3">Profile</span>
+				</a>
+			</li>
+			<li class="nav-item">
+				<a href="#" class="nav-link pl-2 pt-2 <?=$pageTitle=='Settings'?'selected':'';?>">
+					<i class="fa fa-cogs"></i>
+					<span class="m-3">Settings</span>
+				</a>
+			</li>
+		</ul>
+	</aside>
+	<?php endif?>
+	<section class="content mt-3">
 		<nav class="breadcrumb">
 			<?php foreach ($breadcrumbs->links as $link):?> 
 				<a class="breadcrumb-item" href="<?=$link->url?>"><?=$link->name?></a>

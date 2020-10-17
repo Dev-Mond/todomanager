@@ -15,6 +15,11 @@ ul li {
     list-style: none;
 }
 
+.btn, .btn:hover, .btn:active {
+    outline: none;
+}
+
+
 a, a:hover, a:focus {
     text-decoration: none;
     outline: none;
@@ -27,4 +32,25 @@ a, a:hover, a:focus {
 ::-moz-selection {
     background: #4ECDC4;
     color: #fff;
+}
+.font-size-14 { 
+    font-size: 1.05rem;
+}
+ul li{
+    outline: none;
+    text-decoration: none;
+    list-style: none;
+    margin-left: 0px;
+    margin-bottom: 0px;
+}
+ul.dashboard li a{
+    background: none;
+    color: #ffffff;
+}
+ul.dashboard li a:hover, .selected{
+    background: #ffffff !important;
+    color: #000000 !important;
+}
+.content{
+    margin-left: 250px;
 }

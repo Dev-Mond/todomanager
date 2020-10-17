@@ -42,9 +42,9 @@
                     <span id="btnLoading" class="d-none p-1"><i class="fas fa-spinner fa-pulse"></i></span>
                     <span id="btnText">LOGIN</span>
                 </button>
-                <div class="w-100 text-center">
-                    <span class="d-inline">NO ACCOUNT YET?</span>
-                    <a href="<?=base_url('register')?>" class="btn btn-link d-inline">CREATE AN ACCOUNT</a>
+                <div class="w-100 text-center mt-2 mb-2">
+                    <span class="d-inline align-middle">No account yet?</span>
+                    <span onclick="window.location.href = '<?=base_url('register')?>';" class="align-middle d-inline text-dark">Create account</span>
                 </div>
                 <a href="<?=base_url('home')?>" class="btn btn-light btn-md w-100 text-primary">
                     BACK TO HOME
@@ -110,7 +110,8 @@
                 console.log(inputs);
                 validateData(inputs, baseUrl('login/acceptLogin'),
                 function(data) {
-                    if(data.response.result == 'success'){
+                    console.log(data);
+                    if(data.response.result == 'SUCCESS'){
                         $('#formError').html('');
                         console.log('Login Successfull!');
                         window.location.replace('dashboard');                    

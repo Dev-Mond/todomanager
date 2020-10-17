@@ -5,13 +5,17 @@ class Login_model extends CI_Model {
 
     public function __construct(){
         parent::__construct();
+        $this->load->database();
+        $this->load->library('encryptmanager');
     }
 
     public function verifyCredentials($username, $password) {
-        if($username == 'rheymondangue3@gmail.com') {
-            if($password == 'Protection') return 'success';
-            else return 'failed';
+        $result = $this->db->where('username', $username)->get('adm_account'); 
+        foreach ($result->result_array() as $value) {
+            if ($this->encryptmanager->decrypt($value['password']) == $password) {
+                return 'SUCCESS';
+            }
         }
-        else return 'failed';
+        return "FAILED";
     }
 }

@@ -25,10 +25,10 @@ class login extends CI_Controller {
     public function acceptLogin() {
         $username = $this->input->post('username');
         $password = $this->input->post('password');
-        $this->load->model('Login_model', 'login');
+        $this->load->model('login_model', 'login');
         $result = $this->login->verifyCredentials($username, $password);
         
-        if ($result == 'success') {
+        if ($result === 'SUCCESS') {
             $this->session->set_userdata('user', $username);
         }
 

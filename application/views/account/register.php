@@ -63,6 +63,21 @@
         $('#btnRegister').click(function () {
             register();
         });
+
+        $('#password .btn').click(function () {
+            if( $('#password svg').hasClass('fa-eye') ){ 
+                $('#password svg').removeClass('fa-eye');
+                $('#password svg').addClass('fa-eye-slash');
+                $('#password input').prop('type', 'text');
+                $('#passwordTooltip').html('Hide your password');
+            }
+            else {
+                $('#password svg').removeClass('fa-eye-slash');
+                $('#password svg').addClass('fa-eye');
+                $('#password input').prop('type', 'password');
+                $('#passwordTooltip').html('Show your password');
+            }
+        });
         
         var isClicked = false;
 
@@ -72,9 +87,6 @@
             isClicked = true;
             const emailRegex = /^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
 
-            $('#btnLoading').removeClass('d-none');
-            $('#btnText').html('SUBMITTING...');
-            
             if($('#username input').val() === '') {
                 $('#username span').html('Please enter a username!');
                 isClicked = false;
@@ -109,7 +121,7 @@
                 isClicked = false;
                 return;
             }
-            else if($('#confirm input').val() === $('#password input').val()) {
+            else if($('#confirm input').val() !== $('#password input').val()) {
                 $('#confirm span').html('Password not matched!');
                 isClicked = false;
                 return;
@@ -117,6 +129,9 @@
             else {
                 $('#confirm span').html('');
             }
+
+            $('#btnLoading').removeClass('d-none');
+            $('#btnText').html('SUBMITTING...');
 
             var userInputs = {
                 'username' : $('#username input').val(),
@@ -131,7 +146,13 @@
                 isClicked = false;
                 $('#btnLoading').addClass('d-none');
                 $('#btnText').html('REGISTER');
-                window.location.replace('login');
+                if(result.status === "FAILED") {
+                    $('.card-header .text-danger').html(result.error);
+                }
+                else {
+                    window.location.replace('login');
+                }
+                
             }, 
             function (err) {
                 console.log(err);
