@@ -28,11 +28,11 @@ class login extends CI_Controller {
         $this->load->model('login_model', 'login');
         $result = $this->login->verifyCredentials($username, $password);
         
-        if ($result === 'SUCCESS') {
-            $this->session->set_userdata('user', $username);
+        if ($result['status'] === 'SUCCESS') {
+            $this->session->set_userdata('user', $result);
         }
 
-        $data['response'] = array('result' => $result);
+        $data['response'] = array('result' => $result['status']);
 
         echo json_encode($data);
     }

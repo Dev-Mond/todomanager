@@ -32,7 +32,7 @@
 				<ul class="navbar-nav ml-auto mr-5">
 					<?php if($this->session->has_userdata('user')):?>
 						<li class="nav-item">
-							<a class="text-teal-alive nav-link align-middle" href="#"><?=$this->session->userdata('user')?></a>
+							<a class="text-teal-alive nav-link align-middle" href="#"><?=$this->session->userdata('user')['email']?></a>
 						</li>
 						<li class="nav-item">
 							<a class="btn btn-sm rounded mr-2 btn-teal border" href="<?=base_url('logout')?>">Logout</a>
@@ -60,12 +60,12 @@
 	</nav>
 	<?php if($this->session->has_userdata('user')):?>
 	<aside>
-		<ul style="width:250px; height: 93.9%; margin-bottom: 0px" class="nabar-nav overflow-hidden position-absolute bg-dark text-left list-unstyled dashboard">
+		<ul style="width:250px; height: 93.9%; margin-bottom: 0px" class="nabar-nav overflow-hidden position-absolute darktheme-blue text-left list-unstyled dashboard">
 			<li class="nav-item pt-5 pb-3 text-center">
 				<img src="<?=base_url('assets/img/profile.jpg')?>" width="100" height="100" class="rounded-circle border-light border" alt="profile.jpg">
 			</li>
 			<li class="nav-item pb-5 text-center">
-				<span class="h6 text-light font-weight-bold"><b>Mond Angue</b></span>
+				<span class="h6 text-light font-weight-bold"><b><?=explode('@', $this->session->userdata('user')['username'])[0]?></b></span>
 			</li>
 			<li class="nav-item">
 				<a href="#" class="nav-link link-teal pl-3 pt-3 pb-3 m-2 align-middle <?=$pageTitle=='Dashboard'?'selected':'';?>">
@@ -106,11 +106,13 @@
 		</ul>
 	</aside>
 	<?php endif?>
+	<?php if($pageTitle!=='Home'):?>
 	<section class="content mt-3">
-		<nav class="breadcrumb">
+		<nav class="breadcrumb w-75">
 			<?php foreach ($breadcrumbs->links as $link):?> 
 				<a class="breadcrumb-item text-teal-alive" href="<?=$link->url?>"><?=$link->name?></a>
 			<?php endforeach?>
 			<span class="breadcrumb-item active"><?=$breadcrumbs->active?></span>
 		</nav>
 	</section>
+	<?php endif?>

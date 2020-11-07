@@ -1,31 +1,27 @@
+<img src="<?=base_url('assets/img/registerbg.jpg')?>" style="top: 0; position: absolute; z-index: -2; width: 100%; height: 100%; ">
 <section class="container">
-    <div class="row">
-        <div class="col-lg text-center m-lg-5">
-            <div class="h3">Create your Todo Manager Account</div>
-        </div>
-    </div>
-    <div class="row justify-content-center">
-        <div class="card text-left w-50">
-            <div class="card-header">
+    <div class="row justify-content-center mt-5">
+        <div class="card text-left w-50 border-teal">
+            <div class="card-header darktheme text-teal">
                 <span class="h3 d-block">REGISTER</span>
                 <span class="text-danger d-block p-3"></span>
             </div>
             <div class="card-body">
                 <div class="col-sm d-flex justify-content-center">
                     <div id="username" class="form-group w-50 m-1">
-                        <label for="username">ENTER YOUR USERNAME</label>
+                        <label for="username" class="text-teal">ENTER YOUR USERNAME</label>
                         <input type="text" class="form-control" name="username" placeholder="USERNAME" required>
                         <span class="text-danger"></span>
                     </div>
                     <div id="email" class="form-group w-50 m-1">
-                        <label for="email">ENTER YOUR EMAIL</label>
-                        <input type="email" class="form-control" name="email" placeholder="EMAIL" required>
+                        <label for="email" class="text-teal">ENTER YOUR EMAIL</label>
+                        <input type="email" class="form-control" name="email" placeholder="example@mail.com" required>
                         <span class="text-danger"></span>
                     </div>
                 </div>
                 <div class="col-sm d-flex justify-content-center">
                     <div id="password" class="form-group w-50 m-1">
-                        <label for="password">ENTER YOUR PASSWORD</label>
+                        <label for="password" class="text-teal">ENTER YOUR PASSWORD</label>
                         <div class="input-group">
                             <input type="password" class="form-control" name="password" placeholder="PASSWORD" required>
                             <div class="input-group-append">
@@ -37,16 +33,16 @@
                         <span class="text-danger"></span>
                     </div>
                     <div id="confirm" class="form-group w-50 m-1">
-                        <label for="confirm">CONFIRM YOUR PASSWORD</label>
+                        <label for="confirm" class="text-teal">CONFIRM YOUR PASSWORD</label>
                         <input type="password" class="form-control" name="confirm" placeholder="CONFIRM PASSWORD" required>
                         <span class="text-danger"></span>
                     </div>
                 </div>
             </div>
-            <div class="card-footer">
+            <div class="card-footer p-5">
                 <button id="btnRegister" class="btn bg-dark w-100 text-light">
                     <span id="btnLoading" class="d-none p-1"><i class="fas fa-spinner fa-pulse"></i></span>
-                    <span id="btnText">REGISTER</span>
+                    <span id="btnText" class="text-teal">REGISTER</span>
                 </button>
             </div>
         </div>

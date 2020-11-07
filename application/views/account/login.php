@@ -1,12 +1,8 @@
+<img src="<?=base_url('assets/img/loginbg.jpg')?>" style="top: 0; position: absolute; z-index: -2; width: 100%; height: 100%; ">
 <section class="container">
-    <div class="row">
-        <div class="col-sm text-center p-lg-5">
-            <h3>Login to your Todo Manager Accout</h3>
-        </div>
-    </div>
-    <div class="row justify-content-center">
-        <div class="card w-50 shadow-light">
-            <div class="card-header">
+    <div class="row justify-content-center mt-5">
+        <div class="card w-50 shadow-light border-teal">
+            <div class="card-header darktheme text-teal">
                 <h4 class="h3">Login</h4>
                 <div class="p-2">
                     <span class="text-danger" id="formError"></span>
@@ -14,16 +10,16 @@
             </div>
             <div class="card-body">
                 <div id="username" class="form-group">
-                    <label for="username" class="font-weight-bold">USERNAME</label>
-                    <input type="text" name="username" class="form-control" placeholder="ENTER YOUR USERNAME">
+                    <label for="username" class="font-weight-bold text-teal">USERNAME</label>
+                    <input type="text" name="username" class="form-control border-teal" placeholder="ENTER YOUR USERNAME">
                     <span class="text-danger"></span>
                 </div>
                 <div id="password" class="form-group">
-                    <label for="password" class="font-weight-bold">PASSWORD</label>
+                    <label for="password" class="font-weight-bold text-teal">PASSWORD</label>
                     <div class="input-group">
-                        <input type="password" name="password" class="form-control" placeholder="ENTER YOUR PASSWORD">
+                        <input type="password" name="password" class="form-control border-teal" placeholder="ENTER YOUR PASSWORD">
                         <div class="input-group-append">
-                            <button class="input-group-text btn view">
+                            <button class="input-group-text btn view border-teal">
                                 <i class="fa fa-eye"></i>
                             </button>
                         </div>
@@ -38,16 +34,16 @@
                 </div>
             </div>
             <div class="card-footer">
-                <button id="submit" class="btn bg-dark text-light btn-md w-100">
+                <button id="submit" class="btn darktheme text-teal-alive btn-md w-100">
                     <span id="btnLoading" class="d-none p-1"><i class="fas fa-spinner fa-pulse"></i></span>
                     <span id="btnText">LOGIN</span>
                 </button>
                 <div class="w-100 text-center mt-2 mb-2">
                     <span class="d-inline align-middle">No account yet?</span>
-                    <span onclick="window.location.href = '<?=base_url('register')?>';" class="align-middle d-inline text-dark">Create account</span>
+                    <span onclick="window.location.href = '<?=base_url('register')?>';" class="align-middle d-inline text-teal">Create account</span>
                 </div>
                 <a href="<?=base_url('home')?>" class="btn btn-light btn-md w-100 text-primary">
-                    BACK TO HOME
+                    <span class="text-teal">BACK TO HOME</span>
                 </a>
             </div>
         </div>

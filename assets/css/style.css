@@ -55,8 +55,12 @@ ul.dashboard li a:hover, .selected{
     margin-left: 250px;
 }
 .darktheme {
-    background: #181915;
+    background-color: #181915;
     color: #ffffff;
+}
+.darktheme-blue{
+    background: #0E0E0E;
+    color: #ffff;
 }
 .btn-teal {
     background: #4ECDC4;
@@ -85,4 +89,13 @@ ul.dashboard li a:hover, .selected{
 }
 .text-teal-alive:hover {
     color: #282923;
+}
+.bg-teal {
+    background: #4ECDC4;
+}
+.border-teal {
+    border: 1px solid #4ECDC4;
+}
+.border-teal:hover {
+    border: 1px solid #67D8EF;
 }
