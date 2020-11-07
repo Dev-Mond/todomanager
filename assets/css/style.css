@@ -21,8 +21,8 @@ ul li {
 
 
 a, a:hover, a:focus {
-    text-decoration: none;
-    outline: none;
+    text-decoration: none !important;
+    outline: none !important;
 }
 ::selection {
 
@@ -48,9 +48,41 @@ ul.dashboard li a{
     color: #ffffff;
 }
 ul.dashboard li a:hover, .selected{
-    background: #ffffff !important;
-    color: #000000 !important;
+    background: #4ECDC4 !important;
+    color: #ffffff !important;
 }
 .content{
     margin-left: 250px;
+}
+.darktheme {
+    background: #181915;
+    color: #ffffff;
+}
+.btn-teal {
+    background: #4ECDC4;
+    color: #ffffff;
+    border: 2px solid #ffffff;
+}
+.btn-teal:active,
+.btn-teal:hover, {
+    background: #4ECDC4;
+    color: #282923;
+    border: 2px solid #ffffff;
+}
+.link-teal {
+    background: transparent; !important;
+    color: #ffffff !important;
+}
+.link-teal:active,
+.link-teal:hover, {
+    color: #4ECDC4;
+}
+.text-teal {
+    color: #4ECDC4;
+}
+.text-teal-alive {
+    color: #4ECDC4 !important;  
+}
+.text-teal-alive:hover {
+    color: #282923;
 }

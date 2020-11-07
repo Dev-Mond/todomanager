@@ -30,7 +30,7 @@
             </ul>
         </div>
     </section> -->
-    <section class="w-100 float-right">
+    <!-- <section class="w-100 float-right">
         <div class="overflow-hidden rounded w-100 p-3" style="min-height: 600px">
             <div class="row justify-content-center" style="min-height:200px">
                 <div class="col-sm-3 col-sm-3 bg-dark rounded m-1 p-3">
@@ -49,5 +49,5 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 </section>
