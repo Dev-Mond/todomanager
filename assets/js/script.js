@@ -4,7 +4,12 @@ function validateData(userInputs, action, callbackOnSuccess, callbackOnError) {
         type: 'POST',
         dataType: 'json',
         data: userInputs,
-        success: callbackOnSuccess,
+        success: function(data) {
+        	setTimeout(function() {
+        		callbackOnSuccess(data);
+        	}, 1000);
+        	
+        },
         error: callbackOnError
     });
 }
