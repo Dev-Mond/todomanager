@@ -22,6 +22,7 @@ class <?='Migration_' .$className; ?> extends CI_Migration {
                         )
                 ));
                 $this->dbforge->add_key('id', TRUE);
+                $this->dbforge->drop_table('<?=$tableName?>', TRUE);
                 $this->dbforge->create_table('<?=$tableName?>');
         }
 
