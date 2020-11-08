@@ -8,7 +8,9 @@
     public $url;
 
     public function set($linkName, $linkUrl) {
+
         $this->name = $linkName;
+        
         $this->url = $linkUrl;
     }
  }
