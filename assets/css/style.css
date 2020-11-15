@@ -94,8 +94,19 @@ ul.dashboard li a:hover, .selected{
     background: #4ECDC4;
 }
 .border-teal {
-    border: 1px solid #4ECDC4;
+    border: 1px solid #4ECDC4 !important;
 }
 .border-teal:hover {
     border: 1px solid #67D8EF;
+}
+.notif-counter {
+    background-color: #4ECDC4 !important;
+    color: #ffffff;
+    font-size: 12px;
+    padding: 2px;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    vertical-align: middle;
+    transform: translate(-100%, -50%);
 }

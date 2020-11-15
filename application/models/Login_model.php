@@ -14,7 +14,7 @@ class Login_model extends CI_Model {
 
     public function verifyCredentials($username, $password) {
         
-        $result = $this->db->where('username', $username)->get('adm_account'); 
+        $result = $this->db->query('CALL admGetUserByUsername(?)', $username); 
         
         $arrResult = array("status" => "FAILED");
 

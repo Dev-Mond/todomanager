@@ -50,11 +50,11 @@ class Register extends CI_Controller {
 
             $this->load->library('encryptmanager');
 
-            $user['username'] = $this->input->post('username');
+            $user['p_username'] = $this->input->post('username');
 
-            $user['password'] = $this->encryptmanager->encrypt($this->input->post('password'));
+            $user['p_password'] = $this->encryptmanager->encrypt($this->input->post('password'));
 
-            $user['email'] = $this->input->post('email');
+            $user['p_email'] = $this->input->post('email');
 
             $this->load->model('register_model', 'register');
 

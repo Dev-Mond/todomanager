@@ -32,7 +32,33 @@
 				<ul class="navbar-nav ml-auto mr-5">
 					<?php if($this->session->has_userdata('user')):?>
 						<li class="nav-item">
-							<a class="text-teal-alive nav-link align-middle" href="#"><?=$this->session->userdata('user')['email']?></a>
+							<a href="#" class="btn btn-sm rounded mr-2 text-teal-alive border border-teal"><i class="fa fa-tasks"></i></a>
+							<span class="position-absolute rounded-circle notif-counter">7</span>
+						</li>
+						<li class="nav-item"> 
+							<a href="#" class="btn btn-sm rounded mr-2 text-teal-alive border border-teal"><i class="far fa-envelope"></i></a>
+							<span class="position-absolute rounded-circle notif-counter">13</span>
+						</li>
+						<li class="nav-item"> 
+							<a href="#" class="btn btn-sm rounded mr-2 text-teal-alive border border-teal"><i class="far fa-bell"></i></a>
+							<span class="position-absolute rounded-circle notif-counter">3</span>
+						</li>
+						<li class="nav-item mr-2">
+							<div class="input-group border border-teal rounded">
+								<a class="btn btn-sm text-teal-alive" href="#"><?=$this->session->userdata('user')['email']?></a>
+								<div class="input-group-append bg-teal">
+									<div>
+										<a href="#" class="btn btn-sm dropdown-toggle text-light" data-toggle="dropdown" aria-haspopup="false" aria-expanded="true"></a>
+										<div class="dropdown-menu">
+											<a class="dropdown-item" href="#">Action</a>
+											<a class="dropdown-item" href="#">Another action</a>
+											<a class="dropdown-item" href="#">Something else here</a>
+											<div role="separator" class="dropdown-divider"></div>
+											<a class="dropdown-item" href="#">Separated link</a>
+									    </div>
+									</div>
+								</div>
+							</div>
 						</li>
 						<li class="nav-item">
 							<a class="btn btn-sm rounded mr-2 btn-teal border" href="<?=base_url('logout')?>">Logout</a>
