@@ -4,11 +4,17 @@
 /* BASIC THEME CONFIGURATION */
 body {
     color: #797979;
-	background: #eaeaea;
+	background: #090909;
+    background: linear-gradient(180deg, rgba(9,9,9,1) 20%, rgba(9,107,121,1) 70%, rgba(0,212,255,1) 100%);
+    background-repeat: no-repeat;
+    background-size: 100%;
     font-family: 'Ruda', sans-serif;
     padding: 0px !important;
     margin: 0px !important;
     font-size:13px;
+    height: 100%;
+    width: 100%;
+    max-width: 100%;
 }
 
 ul li {
@@ -18,7 +24,10 @@ ul li {
 .btn, .btn:hover, .btn:active {
     outline: none;
 }
-
+.row {
+    padding: 0px;
+    margin: 0px;
+}
 
 a, a:hover, a:focus {
     text-decoration: none !important;
@@ -32,6 +41,27 @@ a, a:hover, a:focus {
 ::-moz-selection {
     background: #4ECDC4;
     color: #fff;
+}
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+  border-radius: 20px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 20px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
 }
 .font-size-14 { 
     font-size: 1.05rem;
@@ -109,4 +139,7 @@ ul.dashboard li a:hover, .selected{
     text-align: center;
     vertical-align: middle;
     transform: translate(-100%, -50%);
+}
+.active {
+    color: #ffffff !important;
 }

@@ -16,6 +16,8 @@
 	<script src="<?=base_url('assets/lib/popper/dist/umd/popper.js')?>"></script>
 	<script src="<?=base_url('assets/lib/bootstrap/dist/js/bootstrap.min.js')?>"></script>
 	<script src="<?=base_url('assets/lib/bootstrap/dist/js/bootstrap.bundle.min.js')?>"></script>
+	<link rel="stylesheet" href="<?=base_url('assets/lib/fullcalendar/zabuto_calendar.css')?>"/>
+	<script src="<?=base_url('assets/lib/fullcalendar/zabuto_calendar.js')?>"></script>
 	<link rel="stylesheet" href="<?=base_url('assets/css/style.css')?>"/>
 	<script src="<?=base_url('assets/js/script.js')?>"></script>
 </head>
@@ -131,14 +133,16 @@
 			</li>
 		</ul>
 	</aside>
-	<?php endif?>
-	<?php if($pageTitle!=='Home'):?>
-	<section class="content mt-3">
-		<nav class="breadcrumb w-75">
-			<?php foreach ($breadcrumbs->links as $link):?> 
-				<a class="breadcrumb-item text-teal-alive" href="<?=$link->url?>"><?=$link->name?></a>
-			<?php endforeach?>
-			<span class="breadcrumb-item active"><?=$breadcrumbs->active?></span>
-		</nav>
-	</section>
-	<?php endif?>
+	<?php endif;?>
+	<?php if ($pageTitle === 'Home' || $pageTitle === 'Login' || $pageTitle === 'Register'): ?>
+		
+	<?php else:?>
+		<section class="content mt-3">
+			<nav class="breadcrumb bg-transparent w-75">
+				<?php foreach ($breadcrumbs->links as $link):?> 
+					<a class="breadcrumb-item text-teal-alive" href="<?=$link->url?>"><?=$link->name?></a>
+				<?php endforeach?>
+				<span class="breadcrumb-item active"><?=$breadcrumbs->active?></span>
+			</nav>
+		</section>
+	<?php endif;?>

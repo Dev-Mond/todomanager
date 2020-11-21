@@ -1,21 +1,21 @@
-<img src="<?=base_url('assets/img/registerbg.jpg')?>" style="top: 0; position: absolute; z-index: -2; width: 100%; height: 100%; ">
-<section class="container">
-    <div class="row justify-content-center mt-5">
-        <div class="card text-left w-50 border-teal">
+<!-- <img src="<?=base_url('assets/img/registerbg.jpg')?>" style="top: 0; position: absolute; z-index: -2; width: 100%; height: 100%; -webkit-filter: blur(5px);  filter: blur(5px);"> -->
+<section class="container" style="min-height: 93.9vh; max-height: 93.9vh">
+    <div class="row justify-content-center" style="transform: translate(0%, 40%);">
+        <div class="card text-left border-teal" style="width: 600px; min-width: 400px">
             <div class="card-header darktheme text-teal">
                 <span class="h3 d-block">REGISTER</span>
                 <span class="text-danger d-block p-3"></span>
             </div>
-            <div class="card-body">
+            <div class="card-body darktheme-blue">
                 <div class="col-sm d-flex justify-content-center">
                     <div id="username" class="form-group w-50 m-1">
                         <label for="username" class="text-teal">ENTER YOUR USERNAME</label>
-                        <input type="text" class="form-control" name="username" placeholder="USERNAME" required>
+                        <input type="text" class="form-control bg-transparent" name="username" placeholder="USERNAME" required>
                         <span class="text-danger"></span>
                     </div>
                     <div id="email" class="form-group w-50 m-1">
                         <label for="email" class="text-teal">ENTER YOUR EMAIL</label>
-                        <input type="email" class="form-control" name="email" placeholder="example@mail.com" required>
+                        <input type="email" class="form-control bg-transparent" name="email" placeholder="example@mail.com" required>
                         <span class="text-danger"></span>
                     </div>
                 </div>
@@ -23,9 +23,9 @@
                     <div id="password" class="form-group w-50 m-1">
                         <label for="password" class="text-teal">ENTER YOUR PASSWORD</label>
                         <div class="input-group">
-                            <input type="password" class="form-control" name="password" placeholder="PASSWORD" required>
+                            <input type="password" class="form-control bg-transparent" name="password" placeholder="PASSWORD" required>
                             <div class="input-group-append">
-                                <button class="input-group-text btn view">
+                                <button class="input-group-text btn view bg-transparent text-teal">
                                     <i class="fa fa-eye"></i>
                                 </button>
                             </div>
@@ -34,13 +34,13 @@
                     </div>
                     <div id="confirm" class="form-group w-50 m-1">
                         <label for="confirm" class="text-teal">CONFIRM YOUR PASSWORD</label>
-                        <input type="password" class="form-control" name="confirm" placeholder="CONFIRM PASSWORD" required>
+                        <input type="password" class="form-control bg-transparent" name="confirm" placeholder="CONFIRM PASSWORD" required>
                         <span class="text-danger"></span>
                     </div>
                 </div>
             </div>
-            <div class="card-footer p-5">
-                <button id="btnRegister" class="btn bg-dark w-100 text-light">
+            <div class="card-footer p-5 darktheme-blue">
+                <button id="btnRegister" class="btn bg-dark w-100 text-light border-teal">
                     <span id="btnLoading" class="d-none p-1"><i class="fas fa-spinner fa-pulse"></i></span>
                     <span id="btnText" class="text-teal">REGISTER</span>
                 </button>
@@ -51,6 +51,7 @@
 <script>
     $(document).ready(function () {
         $(this).keypress(function(e) {
+            // if pressed enter key
             if(e.which == 13) {
                 register();
             }
