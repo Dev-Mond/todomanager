@@ -8,20 +8,15 @@ class Workspace extends CI_Controller {
         parent::__construct();
 
         $this->load->library("breadcrumbs");
+
+        $this->load->library('auth');
     }
 
     public function create() {
 
         $data['pageTitle'] = "Workspace";
 
-        if (!$this->session->has_userdata('user')) {
-
-            redirect('login');
-        }
-
         $this->breadcrumbs->setActive('Workspace');
-
-        $this->breadcrumbs->add('Home', base_url());
 
         $data['breadcrumbs'] = $this->breadcrumbs;
 

@@ -18,7 +18,7 @@
         $this->links = array();
     }
 
-    public function add($linkName, $linkUrl) {
+    private function add($linkName, $linkUrl) {
 
         $this->ci->breadcrumbsLinks = new BreadcrumbsLinks();
 
@@ -30,5 +30,24 @@
     public function setActive($activeLink) {
         
         $this->active = $activeLink;
+
+        $this->setParent($activeLink);
+    }
+
+    private function setParent($active) {
+
+        $home = array("Login", "Register", "Workspace");
+
+        $dashboard = array("Notes", "Projects", "Chat Room", "Profile", "Settings");
+
+        if(in_array($active, $home)) {
+
+            $this->add('Home', base_url("home"));
+        }
+
+        else if(in_array($active, $dashboard)) {
+
+            $this->add('Dashboard', base_url("dashboard"));
+        }  
     }
  }

@@ -4,15 +4,17 @@
 			
 		</div>
 		<div class="col-lg-3">
-	    <div class="bg-teal text-light p-3 rounded mb-5">
-	    	<div id="calendar"></div>
-	    </div>
-			<div class="recent-activity">
-				<h5 class="w-100 text-center">RECENT ACTIVITY</h4>
-				<ul>
-					<li></li>
-				</ul>
+		    <div class="bg-teal text-light p-3 rounded mb-5" style="min-width: 250px;">
+		    	<div id="calendar"></div>
+		    </div>
+				<div class="recent-activity">
+					<h5 class="w-100 text-center">RECENT ACTIVITY</h4>
+					<ul>
+						<li></li>
+					</ul>
+				</div>
 			</div>
 		</div>
+	</div>
 </section>
 	

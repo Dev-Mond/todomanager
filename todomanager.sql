@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 15, 2020 at 02:32 PM
+-- Generation Time: Nov 22, 2020 at 02:26 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.2
 
@@ -32,7 +32,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `admAddUser` (IN `p_username` TEXT, 
 	
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `admCreateTableAccount` ()  BEGIN
+CREATE DEFINER=`root`@`localhost` PROCEDURE `admCreateTable` ()  BEGIN
 	DROP TABLE IF EXISTS adm_account;
     CREATE TABLE adm_account 
     (

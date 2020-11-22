@@ -6,16 +6,14 @@ class Dashboard extends CI_Controller {
     public function __construct() {
 
         parent::__construct();
+
+        $this->load->library('auth');
+
     }
 
     public function index() {
 
         $data['pageTitle'] = "Dashboard";
-
-        if (!$this->session->has_userdata('user')) {
-
-            redirect('login');
-        }
 
         $this->breadcrumbs->setActive('Dashboard');
 

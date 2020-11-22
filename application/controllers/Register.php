@@ -3,20 +3,23 @@ defined('BASEPATH') OR exit('No direct script access allowed!');
 
 class Register extends CI_Controller {
 
-    public function __contruct() {
+    public function __construct() {
 
-        parent::__contruct();
+        parent::__construct();
 
         $this->load->library("breadcrumbs");
+
+        if($this->session->has_userdata('user')) {
+
+            redirect('dashboard');
+        }
     }
 
-    public function index() {
+    public function index() {        
 
         $data['pageTitle'] = "Register";
 
         $this->breadcrumbs->setActive('Register');
-
-        $this->breadcrumbs->add('Home', base_url());
 
         $data['breadcrumbs'] = $this->breadcrumbs;
 

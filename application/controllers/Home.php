@@ -11,15 +11,15 @@ class Home extends CI_Controller {
         parent::__construct();
 
         $this->load->library("breadcrumbs");
+
+        if($this->session->has_userdata('user')) {
+            
+            redirect('dashboard');
+        }
     }
 
     public function index() {
 
-        if($this->session->has_userdata('user')){
-
-            redirect("dashboard");
-        }
-        
         $data['pageTitle'] = "Home";
 
         $this->breadcrumbs->setActive('Home');

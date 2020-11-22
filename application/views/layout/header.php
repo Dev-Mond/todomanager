@@ -96,37 +96,37 @@
 				<span class="h6 text-light font-weight-bold"><b><?=explode('@', $this->session->userdata('user')['username'])[0]?></b></span>
 			</li>
 			<li class="nav-item">
-				<a href="#" class="nav-link link-teal pl-3 pt-3 pb-3 m-2 align-middle <?=$pageTitle=='Dashboard'?'selected':'';?>">
+				<a href="<?=base_url('dashboard')?>" class="nav-link link-teal pl-3 pt-3 pb-3 m-2 align-middle <?=$pageTitle=='Dashboard'?'selected':'';?>">
 					<i class="fa fa-home"></i>
 					<span class="m-3">Dashboard</span>
 				</a>
 			</li>
 			<li class="nav-item">
-				<a href="#" class="nav-link link-teal pl-3 pt-3 pb-3 m-2 align-middle  <?=$pageTitle=='Todo List'?'selected':'';?>">
+				<a href="<?=base_url('notes')?>" class="nav-link link-teal pl-3 pt-3 pb-3 m-2 align-middle  <?=$pageTitle=='Notes'?'selected':'';?>">
 					<i class="fa fa-tasks"></i>
-					<span class="m-3">Todo List</span>
+					<span class="m-3">Notes</span>
 				</a>
 			</li>
 			<li class="nav-item">
-				<a href="#" class="nav-link link-teal pl-3 pt-3 pb-3 m-2 align-middle  <?=$pageTitle=='Projects'?'selected':'';?>">
+				<a href="<?=base_url('projects')?>" class="nav-link link-teal pl-3 pt-3 pb-3 m-2 align-middle  <?=$pageTitle=='Projects'?'selected':'';?>">
 					<i class="fa fa-project-diagram"></i>
 					<span class="m-3">Projects</span>
 				</a>
 			</li>
 			<li class="nav-item">
-				<a href="#" class="nav-link link-teal pl-3 pt-3 pb-3 m-2 align-middle  <?=$pageTitle=='Chat Room'?'selected':'';?>">
+				<a href="<?=base_url('chatroom')?>" class="nav-link link-teal pl-3 pt-3 pb-3 m-2 align-middle  <?=$pageTitle=='Chat Room'?'selected':'';?>">
 					<i class="fa fa-comments"></i>
 					<span class="m-3">Chat Room</span>
 				</a>
 			</li>
 			<li class="nav-item">
-				<a href="#" class="nav-link link-teal pl-3 pt-3 pb-3 m-2 align-middle  <?=$pageTitle=='Profile'?'selected':'';?>">
+				<a href="<?=base_url('profile')?>" class="nav-link link-teal pl-3 pt-3 pb-3 m-2 align-middle  <?=$pageTitle=='Profile'?'selected':'';?>">
 					<i class="fa fa-user"></i>
 					<span class="m-3">Profile</span>
 				</a>
 			</li>
 			<li class="nav-item">
-				<a href="#" class="nav-link link-teal pl-3 pt-3 pb-3 m-2 align-middle  <?=$pageTitle=='Settings'?'selected':'';?>">
+				<a href="<?=base_url('settings')?>" class="nav-link link-teal pl-3 pt-3 pb-3 m-2 align-middle  <?=$pageTitle=='Settings'?'selected':'';?>">
 					<i class="fa fa-cogs"></i>
 					<span class="m-3">Settings</span>
 				</a>

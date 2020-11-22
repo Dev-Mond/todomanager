@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed!');
 
 class login extends CI_Controller {
 
-    public function __contruct() {
+    public function __construct() {
 
         parent::__construct();
 
@@ -12,6 +12,14 @@ class login extends CI_Controller {
         $this->load->library('encryption');
 
         $this->load->library("breadcrumbs");
+
+        $this->load->library('auth', array('isSigningIn' => TRUE));
+
+        if($this->session->has_userdata('user')) {
+
+            redirect('dashboard');
+        }
+
     }
 
     public function index() {
@@ -19,8 +27,6 @@ class login extends CI_Controller {
         $data['pageTitle'] = "Login";
         
         $this->breadcrumbs->setActive('Login');
-
-        $this->breadcrumbs->add('Home', base_url());
 
         $data['breadcrumbs'] = $this->breadcrumbs;
 
@@ -32,6 +38,7 @@ class login extends CI_Controller {
     }
 
     public function acceptLogin() {
+
         $username = $this->input->post('username');
 
         $password = $this->input->post('password');
@@ -42,7 +49,7 @@ class login extends CI_Controller {
         
         if ($result['status'] === 'SUCCESS') {
 
-            $this->session->set_userdata('user', $result);
+            $this->auth->signIn($result);
         }
 
         $data['response'] = array('result' => $result['status']);
@@ -52,11 +59,6 @@ class login extends CI_Controller {
 
     public function logout() {
 
-        if($this->session->has_userdata('user')){
-
-            $this->session->unset_userdata('user');
-        }
-        
-        redirect('login');
+        $this->auth->signOut();
     }
 }
