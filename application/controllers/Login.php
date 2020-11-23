@@ -15,14 +15,14 @@ class login extends CI_Controller {
 
         $this->load->library('auth', array('isSigningIn' => TRUE));
 
+    }
+
+    public function index() {
+        
         if($this->session->has_userdata('user')) {
 
             redirect('dashboard');
         }
-
-    }
-
-    public function index() {
 
         $data['pageTitle'] = "Login";
         

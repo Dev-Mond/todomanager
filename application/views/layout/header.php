@@ -22,7 +22,7 @@
 	<script src="<?=base_url('assets/js/script.js')?>"></script>
 </head>
 <body>
-	<nav class="darktheme">
+	<nav class="darktheme position-absolute position-fixed w-100 navigation">
 		<nav class="navbar navbar-expand-sm navbar-dark bg-none">
 			<a class="navbar-brand ml-3" href="<?=base_url()?>">
 				<i class="fa fa-list text-teal mr-2"></i>
@@ -87,8 +87,8 @@
 		</nav>	
 	</nav>
 	<?php if($this->session->has_userdata('user')):?>
-	<aside>
-		<ul style="width:250px; height: 93.9%; margin-bottom: 0px" class="nabar-nav overflow-hidden position-absolute darktheme-blue text-left list-unstyled dashboard">
+	<aside class="overflow-auto darktheme-blue dashboard position-fixed vh-100">
+		<ul class="nabar-nav  text-left list-unstyled w-100">
 			<li class="nav-item pt-5 pb-3 text-center">
 				<img src="<?=base_url('assets/img/profile.jpg')?>" width="100" height="100" class="rounded-circle border-light border" alt="profile.jpg">
 			</li>
@@ -137,7 +137,7 @@
 	<?php if ($pageTitle === 'Home' || $pageTitle === 'Login' || $pageTitle === 'Register'): ?>
 		
 	<?php else:?>
-		<section class="content mt-3">
+		<section class="content">
 			<nav class="breadcrumb bg-transparent w-75">
 				<?php foreach ($breadcrumbs->links as $link):?> 
 					<a class="breadcrumb-item text-teal-alive" href="<?=$link->url?>"><?=$link->name?></a>
