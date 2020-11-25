@@ -97,9 +97,12 @@ ul.dashboard li a:hover, .selected{
     background: #4ECDC4 !important;
     color: #ffffff !important;
 }
-.content{
+.container{
     margin-left: 250px;
     padding-top: 100px;
+}
+.content {
+    margin-left: 250px;
 }
 .darktheme {
     background-color: #181915;

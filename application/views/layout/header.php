@@ -51,7 +51,7 @@
 								<div class="input-group-append bg-teal">
 									<div>
 										<a href="#" class="btn btn-sm dropdown-toggle text-light" data-toggle="dropdown" aria-haspopup="false" aria-expanded="true"></a>
-										<div class="dropdown-menu">
+										<div class="dropdown-menu darktheme-blue text-teal">
 											<a class="dropdown-item" href="#">Action</a>
 											<a class="dropdown-item" href="#">Another action</a>
 											<a class="dropdown-item" href="#">Something else here</a>
@@ -137,7 +137,7 @@
 	<?php if ($pageTitle === 'Home' || $pageTitle === 'Login' || $pageTitle === 'Register'): ?>
 		
 	<?php else:?>
-		<section class="content">
+		<section class="container">
 			<nav class="breadcrumb bg-transparent w-75">
 				<?php foreach ($breadcrumbs->links as $link):?> 
 					<a class="breadcrumb-item text-teal-alive" href="<?=$link->url?>"><?=$link->name?></a>

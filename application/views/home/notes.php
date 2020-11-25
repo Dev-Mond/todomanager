@@ -1,3 +1,6 @@
+<link rel="stylesheet" type="text/css" href="<?=base_url('assets/lib/Note.js/dist/note.min.js')?>">
+<script type="text/javascript" src="<?=base_url('assets/lib/Note.js/dist/note.css')?>"></script>
+<script type="text/javascript" src="<?=base_url('assets/js/notes.js')?>"></script>
 <section class="content overflow-auto" style="top:-20%; min-height: 85.8vh; max-height: 85.8vh">
 	<div class="row text-light">
 		<div class="col-lg-9">
@@ -17,7 +20,12 @@
 					</div>
 				</div>
 			</div>
+			<!-- LIST OF NOTES -->
+			<div class="container-fluid pt-5">
+				<div id="divNoteList"></div>
+			</div>	
 		</div>
+		<!-- SIDE DISPLAY -->
 		<div class="col-lg-3">
 	    	
 		</div>
