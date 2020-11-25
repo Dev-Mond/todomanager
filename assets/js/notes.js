@@ -1,11 +1,28 @@
 
+const sortType = {
+	NAME: "NAME",
+	DATE: "DATE",
+	TYPE: "TYPE"
+};
 
+let sortby = sortType.NAME;
 
 $(document).ready(function () {
-	const note = new Note({});
 
-	$("#divNoteList").append(note.warning('Try note', 'Sample Text of note'));
-	$("#divNoteList").append(note.warning('Try note', 'Sample Text of note'));
-	$("#divNoteList").append(note.warning('Try note', 'Sample Text of note'));
-	$("#divNoteList").append(note.warning('Try note', 'Sample Text of note'));
+	$('#btnSelectAll').click(function () {
+
+	});
+
+	$('#btnCreateNew').click(function () {
+
+	});
+
+	$('.orderby').click(function () {
+		sortby = $(this).data('valuetype');
+		
+	});
 });
+
+var getNotesOrderBy = function (sorting) {
+
+}

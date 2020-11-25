@@ -1,5 +1,5 @@
 <!-- <img src="<?=base_url('assets/img/loginbg.jpg')?>" style="top: 0; position: absolute; z-index: -2; width: 100%; height: 100%; -webkit-filter: blur(5px);  filter: blur(5px);"> -->
-<section class="container" style="min-height: 93.9vh; max-height: 93.9vh">
+<section class="w-100" style="min-height: 93.9vh; max-height: 93.9vh">
     <div class="row justify-content-center" style="transform: translate(0%, 40%);">
         <div class="card shadow-light border-teal" style="width: 400px; min-width: 400px">
             <div class="card-header darktheme text-teal">

@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.1
+-- version 5.0.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 22, 2020 at 02:26 PM
--- Server version: 10.4.11-MariaDB
--- PHP Version: 7.4.2
+-- Generation Time: Nov 25, 2020 at 03:01 PM
+-- Server version: 10.4.14-MariaDB
+-- PHP Version: 7.4.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -44,6 +43,18 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `admCreateTable` ()  BEGIN
         email TEXT NULL,
         activated TINYINT DEFAULT 0,
         status TINYINT DEFAULT 1
+    );
+    
+    DROP TABLE IF EXISTS adm_notes;
+    CREATE TABLE adm_notes 
+    (
+        id INT(11) AUTO_INCREMENT PRIMARY KEY,
+        user_id INT(11) NULL,
+        create_ts TIMESTAMP NULL,
+        update_ts TIMESTAMP NULL,
+		title TEXT NULL,
+        content TEXT NULL,
+		note_status TEXT NULL
     );
 END$$
 
@@ -95,7 +106,23 @@ CREATE TABLE `adm_account` (
 --
 
 INSERT INTO `adm_account` (`id`, `create_ts`, `update_ts`, `username`, `password`, `email`, `activated`, `status`) VALUES
-(1, '2020-11-14 16:08:36', '2020-11-14 16:08:36', 'rheymondangue3@gmail.com', 'ceb70726471f45e58e7723d1a047c8fb13fb5f94cee073a9820fa77bfb174c9b84969f35e97d4bbede927de2cef4671ab67ee32fcd0a057a9633d15c8ee9f30bOs1XKZwHtJgD9NlaHvIPhiSPJODmpAmGgJPOQv/G6PsIDjowIIUC7umeCT6hFpc3', 'rheymondangue3@gmail.com', 0, 1);
+(1, '2020-11-25 13:35:09', '2020-11-25 13:35:09', 'Mond Angue', 'a6ae6ce777b5083ae25271ede31c6c4d128a06ed9b16675ffd9b4a678510a49fcd62c42849e64fef7ca697abcf597cde4a3b846568644373e23e8ad7ccc29f0eU9jGkBm6HaeJ1e8J5SMqTA0kH2cTR0mI3lNEl8VxhbQ=', 'rheymondangue3@gmail.com', 0, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `adm_notes`
+--
+
+CREATE TABLE `adm_notes` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `create_ts` timestamp NULL DEFAULT NULL,
+  `update_ts` timestamp NULL DEFAULT NULL,
+  `title` text DEFAULT NULL,
+  `content` text DEFAULT NULL,
+  `note_status` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Indexes for dumped tables
@@ -108,6 +135,12 @@ ALTER TABLE `adm_account`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `adm_notes`
+--
+ALTER TABLE `adm_notes`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -116,6 +149,12 @@ ALTER TABLE `adm_account`
 --
 ALTER TABLE `adm_account`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `adm_notes`
+--
+ALTER TABLE `adm_notes`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -34,15 +34,15 @@
 				<ul class="navbar-nav ml-auto mr-5">
 					<?php if($this->session->has_userdata('user')):?>
 						<li class="nav-item">
-							<a href="#" class="btn btn-sm rounded mr-2 text-teal-alive border border-teal"><i class="fa fa-tasks"></i></a>
+							<a href="#" class="btn btn-sm rounded mr-2 text-teal-alive border border-teal selectable"><i class="fa fa-tasks"></i></a>
 							<span class="position-absolute rounded-circle notif-counter">7</span>
 						</li>
 						<li class="nav-item"> 
-							<a href="#" class="btn btn-sm rounded mr-2 text-teal-alive border border-teal"><i class="far fa-envelope"></i></a>
+							<a href="#" class="btn btn-sm rounded mr-2 text-teal-alive border border-teal selectable"><i class="far fa-envelope"></i></a>
 							<span class="position-absolute rounded-circle notif-counter">13</span>
 						</li>
 						<li class="nav-item"> 
-							<a href="#" class="btn btn-sm rounded mr-2 text-teal-alive border border-teal"><i class="far fa-bell"></i></a>
+							<a href="#" class="btn btn-sm rounded mr-2 text-teal-alive border border-teal selectable"><i class="far fa-bell"></i></a>
 							<span class="position-absolute rounded-circle notif-counter">3</span>
 						</li>
 						<li class="nav-item mr-2">

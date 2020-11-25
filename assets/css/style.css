@@ -6,6 +6,13 @@
 }
 
 /* BASIC THEME CONFIGURATION */
+html,  
+header,
+body {
+    overflow-y: scroll;
+    scrollbar-color: teal #0E0E0E;
+    scrollbar-width: thin;
+}
 body {
     color: #797979;
 	background: #090909;
@@ -39,7 +46,6 @@ a, a:hover, a:focus {
     outline: none !important;
 }
 ::selection {
-
     background: #4ECDC4;
     color: #fff;
 }
@@ -68,6 +74,7 @@ a, a:hover, a:focus {
 ::-webkit-scrollbar-thumb:hover {
   background: #555; 
 }
+
 .font-size-14 { 
     font-size: 1.05rem;
 }
@@ -162,4 +169,9 @@ ul.dashboard li a:hover, .selected{
 }
 .active {
     color: #ffffff !important;
+}
+.selected {
+    color: #ffffff !important;
+    background: #4ECDC4;
+    transition: background 1s ease linear;
 }

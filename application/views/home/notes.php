@@ -1,5 +1,4 @@
-<link rel="stylesheet" type="text/css" href="<?=base_url('assets/lib/Note.js/dist/note.min.js')?>">
-<script type="text/javascript" src="<?=base_url('assets/lib/Note.js/dist/note.css')?>"></script>
+
 <script type="text/javascript" src="<?=base_url('assets/js/notes.js')?>"></script>
 <section class="content overflow-auto" style="top:-20%; min-height: 85.8vh; max-height: 85.8vh">
 	<div class="row text-light">
@@ -7,16 +6,16 @@
 			<div class="w-100 d-inline">
 				<div class="input-group float-left w-50">
 					<div class="input-group-prepend">
-						<button class="btn border-teal text-teal-alive btn-sm" type="button">ALL</button>
+						<button id="btnSelectAll" class="btn border-teal text-teal-alive btn-sm selectable" type="button">ALL</button>
 					</div>
-					<button class="btn border-teal text-teal-alive btn-sm" type="button">NEW</button>
+					<button id="btnCreateNew" class="btn border-teal text-teal-alive btn-sm selectable" type="button">NEW</button>
 				</div>
 				<div class="input-group float-right w-50">
 					<button class="btn border-teal text-teal-alive btn-sm ml-auto" disabled>SORT BY:</button>
 					<div class="input-group-append">
-						<button class="btn border-teal text-teal-alive btn-sm" type="button">NAME</button>
-						<button class="btn border-teal text-teal-alive btn-sm" type="button">DATE</button>
-						<button class="btn border-teal text-teal-alive btn-sm" type="button">TYPE</button>
+						<button class="btn border-teal text-teal-alive btn-sm orderby selectable-group selected" type="button" data-valuetype="NAME">NAME</button>
+						<button class="btn border-teal text-teal-alive btn-sm orderby selectable-group" type="button" data-valuetype="DATE">DATE</button>
+						<button class="btn border-teal text-teal-alive btn-sm orderby selectable-group" type="button" data-valuetype="TYPE">TYPE</button>
 					</div>
 				</div>
 			</div>
@@ -27,7 +26,7 @@
 		</div>
 		<!-- SIDE DISPLAY -->
 		<div class="col-lg-3">
-	    	
+
 		</div>
 	</div>
 </section>
