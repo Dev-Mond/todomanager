@@ -51,13 +51,17 @@
 								<div class="input-group-append bg-teal">
 									<div>
 										<a href="#" class="btn btn-sm dropdown-toggle text-light" data-toggle="dropdown" aria-haspopup="false" aria-expanded="true"></a>
-										<div class="dropdown-menu darktheme-blue text-teal">
-											<a class="dropdown-item" href="#">Action</a>
-											<a class="dropdown-item" href="#">Another action</a>
-											<a class="dropdown-item" href="#">Something else here</a>
-											<div role="separator" class="dropdown-divider"></div>
-											<a class="dropdown-item" href="#">Separated link</a>
-									    </div>
+										<div class="popover" role="tooltip">
+											<div class="arrow">
+												
+											</div>
+											<h3 class="popover-header">
+												
+											</h3>
+											<div class="popover-body">
+												
+											</div>
+										</div>
 									</div>
 								</div>
 							</div>

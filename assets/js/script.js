@@ -5,7 +5,6 @@ $(document).ready(function () {
     $('.selectable').each(function (index, element) {
       $(element).removeClass('selected');
     });
-
     $(this).addClass('selected');
   });
 
@@ -13,11 +12,9 @@ $(document).ready(function () {
     $('.selectable-group').each(function (index, element) {
       $(element).removeClass('selected');
     });
-
     $(this).addClass('selected');
   });
 });
-
 
 
 function validateData(userInputs, action, callbackOnSuccess, callbackOnError) {

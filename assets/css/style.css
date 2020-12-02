@@ -6,13 +6,7 @@
 }
 
 /* BASIC THEME CONFIGURATION */
-html,  
-header,
-body {
-    overflow-y: scroll;
-    scrollbar-color: teal #0E0E0E;
-    scrollbar-width: thin;
-}
+
 body {
     color: #797979;
 	background: #090909;
