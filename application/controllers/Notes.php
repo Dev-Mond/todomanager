@@ -27,4 +27,8 @@ class Notes extends CI_Controller {
 	    
 	    $this->load->view('layout/footer', $data);
 	}
+
+	public function saveNote() {
+		
+	}
 }

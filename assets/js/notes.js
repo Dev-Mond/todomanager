@@ -13,7 +13,23 @@ $(document).ready(function () {
 
 	});
 
-	$('#btnCreateNew').click(function () {
+	$('#btnSaveNote').click(function () {
+		var title = $('#inputNoteTitle').val();
+		var content = $('#inputNoteContent').val();
+		var timestamp = moment().format('lll');
+
+		if(title === '') {
+			title = 'untitled';
+		}
+
+		if(content === '') {
+			return;
+		}
+
+		
+	});
+
+	$('#btnCancel').click(function () {
 
 	});
 

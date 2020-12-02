@@ -18,6 +18,8 @@
 	<script src="<?=base_url('assets/lib/bootstrap/dist/js/bootstrap.bundle.min.js')?>"></script>
 	<link rel="stylesheet" href="<?=base_url('assets/lib/fullcalendar/zabuto_calendar.css')?>"/>
 	<script src="<?=base_url('assets/lib/fullcalendar/zabuto_calendar.js')?>"></script>
+	<script src="<?=base_url('assets/lib/moment/moment.min.js')?>"></script>
+	<script src="<?=base_url('assets/lib/moment/moment-timezone.min.js')?>"></script>
 	<link rel="stylesheet" href="<?=base_url('assets/css/style.css')?>"/>
 	<script src="<?=base_url('assets/js/script.js')?>"></script>
 </head>

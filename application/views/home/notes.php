@@ -8,7 +8,7 @@
 					<div class="input-group-prepend">
 						<button id="btnSelectAll" class="btn border-teal text-teal-alive btn-sm selectable" type="button">ALL</button>
 					</div>
-					<button id="btnCreateNew" class="btn border-teal text-teal-alive btn-sm selectable" type="button">NEW</button>
+					<button class="btn border-teal text-teal-alive btn-sm selectable" data-toggle="modal" data-target="#divCreateNote" type="button">CREATE</button>
 				</div>
 				<div class="input-group float-right w-50">
 					<button class="btn border-teal text-teal-alive btn-sm ml-auto" disabled>SORT BY:</button>
@@ -30,4 +30,36 @@
 		</div>
 	</div>
 </section>
+
+<!-- MODAL -->
+<div class="modal fade" tabindex="-1" id="divCreateNote" aria-labelledby="divModalTitle" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered" role="document">
+		<div class="modal-content">
+			<div class="modal-header bg-teal text-light">
+				<div class="modal-title" id="divModalTitle">CREATE NOTE</div>
+				<button class="outline-none rounded-circle bg-light btn-teal text-teal" style="outline: none !important" type="button" data-dismiss="modal" aria-label="close">
+					<span class="" aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<div class="input-group border-teal">
+					<div class="input-group-prepend">
+						<span class="input-group-text">Title : </span>
+					</div>
+					<input id="inputNoteTitle" type="text" class="form-control" placeholder="untitled"></input>
+				</div>
+				<div class="mt-2">Content : </div>
+				<textarea id="inputNoteContent" class="form-control border-teal" rows="10" placeholder="Write your note"></textarea>
+			</div>
+			<div class="modal-footer bg-teal text-light">
+				<div class="input-group w-auto">
+					<div class="input-group-prepend">
+						<button id="btnSaveNote" class="btn btn-sm btn-teal border-teal bg-light text-teal" type="button">SAVE</button>
+					</div>
+					<button id="btnCancel" class="btn btn-sm btn-teal border-teal bg-light text-teal" type="button">CANCEL</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
 	
