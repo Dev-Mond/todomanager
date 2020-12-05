@@ -6,10 +6,6 @@
 }
 
 /* BASIC THEME CONFIGURATION */
-<<<<<<< HEAD
-
-=======
->>>>>>> 1c25d5bdb8432ae1390583c28f55c378813ff89a
 body {
     color: #797979;
 	background: #090909;
@@ -58,13 +54,11 @@ a, a:hover, a:focus {
 /* Track */
 ::-webkit-scrollbar-track {
   background: #f1f1f1; 
-  border-radius: 20px;
 }
  
 /* Handle */
 ::-webkit-scrollbar-thumb {
   background: #888;
-  border-radius: 20px;
 }
 
 /* Handle on hover */

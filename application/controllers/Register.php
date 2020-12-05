@@ -45,7 +45,7 @@ class Register extends CI_Controller {
 
         if($this->form_validation->run() == FALSE) {
 
-            $data['status'] = 'FAILED';
+            $data['status'] = FAILED;
 
             $data['error'] = validation_errors();
         }
@@ -61,14 +61,14 @@ class Register extends CI_Controller {
 
             $this->load->model('register_model', 'register');
 
-            if($this->register->add($user) === 'SUCCESS') {
+            if($this->register->add($user) === SUCCESS) {
 
                 $data['user_data'] = $user;
 
-                $data['status'] = 'SUCCESS';
+                $data['status'] = SUCCESS;
             }
             else {
-                $data['status'] = 'FAILED';
+                $data['status'] = FAILED;
                 
                 $data['error'] = 'Encountered a problem in saving the data!';
             }

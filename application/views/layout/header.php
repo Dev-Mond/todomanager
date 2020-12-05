@@ -53,7 +53,7 @@
 								<div class="input-group-append bg-teal">
 									<div>
 										<a href="#" class="btn btn-sm dropdown-toggle text-light" data-toggle="dropdown" aria-haspopup="false" aria-expanded="true"></a>
-										<div class="popover" role="tooltip">
+										<!-- <div class="popover" role="tooltip">
 											<div class="arrow">
 												
 											</div>
@@ -63,7 +63,7 @@
 											<div class="popover-body">
 												
 											</div>
-										</div>
+										</div> -->
 									</div>
 								</div>
 							</div>

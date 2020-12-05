@@ -14,9 +14,9 @@ class Register_model extends CI_Model {
 
         if($this->db->query('CALL admAddUser(?,?,?)', $data)) {
 
-            return 'SUCCESS';
+            return SUCCESS;
         }
         
-        return 'FAILED';
+        return FAILED;
     }
 }

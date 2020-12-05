@@ -16,13 +16,13 @@ class Login_model extends CI_Model {
         
         $result = $this->db->query('CALL admGetUserByUsername(?)', $username); 
         
-        $arrResult = array("status" => "FAILED");
+        $arrResult = array("status" => FAILED);
 
         foreach ($result->result_array() as $value) {
 
             if ($this->encryptmanager->decrypt($value['password']) == $password) {
 
-                $arrResult =  array("status" => "SUCCESS","username" => $username, "email" => $value['email']);
+                $arrResult =  array("status" => SUCCESS,"username" => $username, "email" => $value['email'], 'id' => $value['id']);
 
                 return $arrResult;
             }

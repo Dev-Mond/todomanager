@@ -29,6 +29,53 @@ class Notes extends CI_Controller {
 	}
 
 	public function saveNote() {
+
+		$title = $this->input->post('title');
 		
+		$content = $this->input->post('content');
+		
+		$data['result'] = FAILED;
+
+		if(!empty($title)) {
+
+			$this->load->model('Note_model', 'notes');
+
+			$dbData['p_user_id'] = $this->auth->credentials['id'];
+
+			$dbData['p_title'] = $title;
+
+			$dbData['p_content'] = $content;
+
+			if($this->notes->save($dbData) === SUCCESS) {
+
+				$data['result'] = SUCCESS;
+
+				$data['data'] = $dbData;
+			}
+		}
+
+		echo json_encode($data);
+	}
+
+	public function getNotes() {
+
+		$result['status'] = FAILED;
+
+		$sortby = $this->input->post('sortby');
+
+		$data['sortby'] = $sortby;
+
+		if($sortby) {
+
+			$this->load->model('Note_model', 'notes');
+
+			$result['rows'] = $this->notes->all($data);
+
+			$result['sortby'] = $sortby;
+
+			$result['status'] = SUCCESS;
+		}
+
+		echo json_encode($result);
 	}
 }

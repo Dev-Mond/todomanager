@@ -56,7 +56,7 @@
 					<div class="input-group-prepend">
 						<button id="btnSaveNote" class="btn btn-sm btn-teal border-teal bg-light text-teal" type="button">SAVE</button>
 					</div>
-					<button id="btnCancel" class="btn btn-sm btn-teal border-teal bg-light text-teal" type="button">CANCEL</button>
+					<button id="btnCancel" class="btn btn-sm btn-teal border-teal bg-light text-teal" type="button" data-dismiss="modal">CANCEL</button>
 				</div>
 			</div>
 		</div>

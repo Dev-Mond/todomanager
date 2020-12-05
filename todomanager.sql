@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.3
+-- version 5.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 25, 2020 at 03:01 PM
--- Server version: 10.4.14-MariaDB
--- PHP Version: 7.4.11
+-- Generation Time: Dec 05, 2020 at 08:42 PM
+-- Server version: 10.4.11-MariaDB
+-- PHP Version: 7.4.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -44,17 +45,16 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `admCreateTable` ()  BEGIN
         activated TINYINT DEFAULT 0,
         status TINYINT DEFAULT 1
     );
-    
     DROP TABLE IF EXISTS adm_notes;
     CREATE TABLE adm_notes 
     (
         id INT(11) AUTO_INCREMENT PRIMARY KEY,
-        user_id INT(11) NULL,
+        user_id INT,
         create_ts TIMESTAMP NULL,
         update_ts TIMESTAMP NULL,
-		title TEXT NULL,
+        title TEXT NULL,
         content TEXT NULL,
-		note_status TEXT NULL
+        status TEXT NULL
     );
 END$$
 
@@ -74,6 +74,14 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `admGetUserByUsername` (IN `p_userna
 	
     SELECT * FROM adm_account WHERE username=p_username;
     
+END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `admSaveNote` (IN `p_user_id` INT(11), IN `p_title` TEXT, IN `p_content` TEXT)  BEGIN
+	INSERT INTO adm_notes (user_id, create_ts, update_ts, title, content, status) VALUES (p_user_id, CURRENT_TIMESTAMP(), CURRENT_TIMESTAMP(), p_title, p_content, 'PENDING');
+END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `admSelectAllNotes` (IN `p_sortby` TEXT)  BEGIN
+	SELECT * FROM adm_notes ORDER BY CASE p_sortby WHEN 'NAME' THEN title WHEN 'DATE' THEN create_ts ELSE status END ASC;
 END$$
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `admUpdateUserById` (IN `p_id` INT, IN `p_username` TEXT, IN `p_password` TEXT, IN `p_email` TEXT)  BEGIN
@@ -106,23 +114,7 @@ CREATE TABLE `adm_account` (
 --
 
 INSERT INTO `adm_account` (`id`, `create_ts`, `update_ts`, `username`, `password`, `email`, `activated`, `status`) VALUES
-(1, '2020-11-25 13:35:09', '2020-11-25 13:35:09', 'Mond Angue', 'a6ae6ce777b5083ae25271ede31c6c4d128a06ed9b16675ffd9b4a678510a49fcd62c42849e64fef7ca697abcf597cde4a3b846568644373e23e8ad7ccc29f0eU9jGkBm6HaeJ1e8J5SMqTA0kH2cTR0mI3lNEl8VxhbQ=', 'rheymondangue3@gmail.com', 0, 1);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `adm_notes`
---
-
-CREATE TABLE `adm_notes` (
-  `id` int(11) NOT NULL,
-  `user_id` int(11) DEFAULT NULL,
-  `create_ts` timestamp NULL DEFAULT NULL,
-  `update_ts` timestamp NULL DEFAULT NULL,
-  `title` text DEFAULT NULL,
-  `content` text DEFAULT NULL,
-  `note_status` text DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+(1, '2020-12-05 19:41:16', '2020-12-05 19:41:16', 'rheymondangue3@gmail.com', '81eab3d9fa3f6ea924c7c34b5e43b08e2ff2dd4fe0ec732866644c85b169e73afc32acede7a238843c5e9169bc48463a66d71e8e5f6293eba786c565cc3ef4a05DFJOx6FCJKWWMp4frZvikcxvlbKtN/GEZ5tU2njUVroCX4j9uPnzyMPvTk6blbN', 'rheymondangue3@gmail.com', 0, 1);
 
 --
 -- Indexes for dumped tables
@@ -135,12 +127,6 @@ ALTER TABLE `adm_account`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `adm_notes`
---
-ALTER TABLE `adm_notes`
-  ADD PRIMARY KEY (`id`);
-
---
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -149,12 +135,6 @@ ALTER TABLE `adm_notes`
 --
 ALTER TABLE `adm_account`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT for table `adm_notes`
---
-ALTER TABLE `adm_notes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

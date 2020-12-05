@@ -47,7 +47,7 @@ class login extends CI_Controller {
 
         $result = $this->login->verifyCredentials($username, $password);
         
-        if ($result['status'] === 'SUCCESS') {
+        if ($result['status'] === SUCCESS) {
 
             $this->auth->signIn($result);
         }
