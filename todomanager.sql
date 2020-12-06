@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 05, 2020 at 08:42 PM
+-- Generation Time: Dec 06, 2020 at 03:38 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.2
 
@@ -76,12 +76,30 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `admGetUserByUsername` (IN `p_userna
     
 END$$
 
+CREATE DEFINER=`root`@`localhost` PROCEDURE `admRemoveNote` (IN `p_user_id` INT(11), IN `p_id` INT)  BEGIN
+	DELETE FROM adm_notes WHERE user_id = p_user_id AND id = p_id;
+END$$
+
 CREATE DEFINER=`root`@`localhost` PROCEDURE `admSaveNote` (IN `p_user_id` INT(11), IN `p_title` TEXT, IN `p_content` TEXT)  BEGIN
 	INSERT INTO adm_notes (user_id, create_ts, update_ts, title, content, status) VALUES (p_user_id, CURRENT_TIMESTAMP(), CURRENT_TIMESTAMP(), p_title, p_content, 'PENDING');
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `admSelectAllNotes` (IN `p_sortby` TEXT)  BEGIN
-	SELECT * FROM adm_notes ORDER BY CASE p_sortby WHEN 'NAME' THEN title WHEN 'DATE' THEN create_ts ELSE status END ASC;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `admSelectAllNotes` (IN `p_user_id` INT, IN `p_sort_by` TEXT, IN `p_sort_type` TEXT)  BEGIN
+	IF p_sort_type = 'ASC' THEN CALL admSelectAllNotesAsc(p_user_id, p_sort_by);
+    ELSE CALL admSelectAllNotesDesc(p_user_id, p_sort_by);
+    END IF;
+END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `admSelectAllNotesAsc` (IN `p_user_id` INT, IN `p_sort_by` TEXT)  BEGIN
+	SELECT * FROM adm_notes ORDER BY (CASE p_sort_by WHEN 'NAME' THEN title WHEN 'DATE' THEN create_ts ELSE status END) ASC;
+END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `admSelectAllNotesDesc` (IN `p_user_id` INT, IN `p_sort_by` TEXT)  BEGIN
+	SELECT * FROM adm_notes ORDER BY (CASE p_sort_by WHEN 'NAME' THEN title WHEN 'DATE' THEN create_ts ELSE status END) DESC;
+END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `admTruncateNotes` (IN `p_user_id` INT(11))  BEGIN
+	DELETE FROM adm_notes WHERE user_id = p_user_id;
 END$$
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `admUpdateUserById` (IN `p_id` INT, IN `p_username` TEXT, IN `p_password` TEXT, IN `p_email` TEXT)  BEGIN
@@ -110,13 +128,6 @@ CREATE TABLE `adm_account` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `adm_account`
---
-
-INSERT INTO `adm_account` (`id`, `create_ts`, `update_ts`, `username`, `password`, `email`, `activated`, `status`) VALUES
-(1, '2020-12-05 19:41:16', '2020-12-05 19:41:16', 'rheymondangue3@gmail.com', '81eab3d9fa3f6ea924c7c34b5e43b08e2ff2dd4fe0ec732866644c85b169e73afc32acede7a238843c5e9169bc48463a66d71e8e5f6293eba786c565cc3ef4a05DFJOx6FCJKWWMp4frZvikcxvlbKtN/GEZ5tU2njUVroCX4j9uPnzyMPvTk6blbN', 'rheymondangue3@gmail.com', 0, 1);
-
---
 -- Indexes for dumped tables
 --
 
@@ -134,7 +145,7 @@ ALTER TABLE `adm_account`
 -- AUTO_INCREMENT for table `adm_account`
 --
 ALTER TABLE `adm_account`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

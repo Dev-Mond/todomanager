@@ -20,8 +20,10 @@
 	<script src="<?=base_url('assets/lib/fullcalendar/zabuto_calendar.js')?>"></script>
 	<script src="<?=base_url('assets/lib/moment/moment.min.js')?>"></script>
 	<script src="<?=base_url('assets/lib/moment/moment-timezone.min.js')?>"></script>
-	<link rel="stylesheet" href="<?=base_url('assets/css/style.css')?>"/>
-	<script src="<?=base_url('assets/js/script.js')?>"></script>
+	<script src="<?=base_url('assets/lib/trumbowyg/dist/trumbowyg.min.js')?>"></script>
+	<link rel="stylesheet" href="<?=base_url('assets/lib/trumbowyg/dist/ui/trumbowyg.min.css')?>"/>
+	<link rel="stylesheet" href="<?=base_url('assets/css/global.css')?>"/>
+	<script src="<?=base_url('assets/js/global.js')?>"></script>
 </head>
 <body>
 	<nav class="darktheme position-absolute position-fixed w-100 navigation">

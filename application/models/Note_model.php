@@ -21,10 +21,39 @@ class Note_model extends CI_Model{
 		return FAILED;
 	}
 
-	public function all($sortBy) {
+	public function all($sortOrder) {
 
-		$result = $this->db->query('CALL admSelectAllNotes(?)', $sortBy); 
+		$result = $this->db->query('CALL admSelectAllNotes(?, ?, ?)', $sortOrder); 
 
-		return $result->result_array(); 
+		if($result) {
+
+			return $result->result_array(); 
+		}
+
+		return FAILED;
+	}
+
+	public function truncate($userId) {
+
+		$result = $this->db->query('CALL admTruncateNotes(?)', $userId);
+
+		if($result) {
+
+			return SUCCESS;
+		}
+
+		return FAILED;
+	}
+
+	public function remove($id) {
+
+		$result = $this->db->query('CALL admRemoveNote(?)', $id);
+
+		if($result) {
+
+			return SUCCESS;
+		}
+
+		return FAILED;
 	}
 }

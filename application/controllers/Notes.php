@@ -61,19 +61,75 @@ class Notes extends CI_Controller {
 
 		$result['status'] = FAILED;
 
-		$sortby = $this->input->post('sortby');
+		$sortBy = $this->input->post('sort_by');
 
-		$data['sortby'] = $sortby;
+		$sortType = $this->input->post('sort_type');
 
-		if($sortby) {
+		$data['p_user_id'] = $this->auth->credentials['id'];
 
-			$this->load->model('Note_model', 'notes');
+		$data['p_sort_by'] = $sortBy;
 
-			$result['rows'] = $this->notes->all($data);
+		$data['p_sort_type'] = $sortType;
 
-			$result['sortby'] = $sortby;
+		$this->load->model('Note_model', 'notes');
+
+		$output = $this->notes->all($data);
+
+		if($output === FAILED) {
+
+			$result['sort_by'] = $sortBy;
+
+			$result['sort_type'] = $sortType;
+
+			$result['status'] = FAILED;
+		}
+		else {
+
+			$result['rows'] = $output;
+
+			$result['sort_by'] = $sortBy;
+
+			$result['sort_type'] = $sortType;
 
 			$result['status'] = SUCCESS;
+		}
+
+		echo json_encode($result);
+	}
+
+	public function remove( $id = false ) {
+
+		$this->load->model('Note_model', 'notes');
+
+		$result['status'] = FAILED;
+		// remove all
+		if(!$id) {
+
+			$param['p_user_id'] = $this->auth->credentials['id'];
+
+			if ($this->notes->truncate($param)) {
+
+				$result['status'] = SUCCESS;
+			}
+			else {
+
+				$result['error'] = $this->db->error_message();
+			}
+		}
+		// remove spicific row
+		else {
+
+			$param['p_user_id'] = $this->auth->credentials['id'];
+			$param['p_id'] = $id;
+
+			if($this->notes->remove($param)) {
+
+				$result['status'] = SUCCESS;
+			}
+			else {
+
+				$result['error'] = $this->db->error_message();
+			}
 		}
 
 		echo json_encode($result);
